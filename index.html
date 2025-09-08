@@ -14,7 +14,7 @@
     <!-- font awesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
-  <body>
+  <body class="bg-[#f0fdf4]">
     <header class="bg-[#15803d]">
       <div class="navbar  w-[95%] mx-auto ">
         <div class="navbar-start">
@@ -84,29 +84,70 @@
         <div class="catagories-container w-[15%] border-2 border-red-500 text-center">
             <h2>Categories</h2>
             <div class="catagories flex flex-col gap-2 mt-3 ">
+              <button id="allTreeBtn" class="hover:bg-sky-300 p-2 rounded-md cursor-pointer categoriBtn ">All Trees</button>
                
             </div>
-
         </div>
-        <div class="tree-info-container flex-1 border-3 border-amber-600  grid grid-cols-3 gap-4 ">
-            
 
-
-            
+        <!-- All tree container -->
+        <div class="tree-info-container flex-1 border-3 border-amber-600  grid grid-cols-1 gap-4 ">          
         </div>
+
+
         <!-- your card -->
         <div class="your-cart-container w-[20%] border-4 border-lime-600 text-center">
-            <h1>add the click add to cart</h1>
+            <h1 class="text-lg font-bold">Your Cart</h1>
+            <div class="add-cart-container">
+
+            </div>
+            
+            <div class="priceTag flex justify-between p-3"></div>
         </div>
     </section>
 
 
+
+    <section class="m-4 ">
+      <h2 class="text-3xl font-bold mt-10
+      text-center">About the Campaign</h2>
+      <div class="flex  justify-center items-center gap-6 mt-14 flex-col lg:flex-row">
+        <div>
+          <img src="/assets/about.png" alt="">
+        </div>
+        <div class="max-w-[500px] ">
+          <p class="text-[16px] mb-6">Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.</p>
+          <ul class="list-disc mx-4">
+            <li>Restoration of natural habitats</li>
+            <li>Improvement of aair quality</li>
+            <li>Support for local communities</li>
+          </ul>
+        </div>
+      </div>
+    </section>
  
 
 
 
-  
 
+
+
+
+   <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="modal-containers" class="space-y-3">
+
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+  
 
     <script src="script.js"></script>
   </body>
