@@ -199,3 +199,24 @@ Display in a 3-column card layout.
 - Arrow functions are a new function syntax introduced in ES6
 - They are **shorte and cleaner** compared to normal function expressions
 - Use the `=>` symbol instead of the `function` keyword
+
+### **Answer to the questionh NO-4:**
+
+- Destructuring allows you to **unpack values** from arrays or objects into separate variable
+- It makes code shorter, cleaner, and more readable.
+
+---
+
+### Array Destructuring Example
+
+```javascript
+const number = [10, 20, 30];
+const [x, y, z] = number;
+
+const person = {
+  name: "Rasel",
+  age: 25,
+  country: "Bangladesh",
+};
+const { name, age, country } = person;
+```
