@@ -5,7 +5,20 @@ const allTreesLink = "https://openapi.programming-hero.com/api/plants";
 const categoriPerLink = "https://openapi.programming-hero.com/api/category/";
 const oneTreeLink = "https://openapi.programming-hero.com/api/plant/";
 
+const spinnerFunction = (status) => {
+  if (status === true) {
+    document.querySelector("#spinner").classList.remove("hidden");
+    treeInfoContainer.classList.add("hidden");
+    document.querySelector(".catagories-container").classList.add("hidden");
+  } else {
+    document.querySelector("#spinner").classList.add("hidden");
+    treeInfoContainer.classList.remove("hidden");
+    document.querySelector(".catagories-container").classList.remove("hidden");
+  }
+};
+
 const returnAllurl = async (url, id) => {
+  spinnerFunction(true);
   if (url && id) {
     const urlLink = await fetch(`${url}${id}`);
     const res = await urlLink.json();
@@ -27,12 +40,14 @@ const showCatagoryes = async () => {
       "p-2",
       "rounded-md",
       "cursor-pointer",
-      "categoriBtn"
+      "categoriBtn",
+      "lg:w-full"
     );
     button.dataset.id = `${catagorie.id}`;
     button.innerText = `${catagorie.category_name}`;
     catagoriesDiv.append(button);
   });
+  spinnerFunction(false);
 };
 
 showCatagoryes();
@@ -51,7 +66,7 @@ const showAllTree = async (allTreesLink, id) => {
         alt="Shoes" />
       <h2 class="mt-5"><span id="${
         tree.id
-      }" class="treeName  text-2xl  inline">${tree.name}</span></h2>
+      }" class="treeName  text-2xl  inline font-bold">${tree.name}</span></h2>
       <p class="mt-4 line-clamp-3 ">${tree.description}</p>
       <div class="card-actions justify-between items-center mt-5">
           <button class=" p-2 rounded-xl bg-slate-300 text-[#15803d] font-bold text-[14px]">${
@@ -69,6 +84,7 @@ const showAllTree = async (allTreesLink, id) => {
       `;
     treeInfoContainer.append(newDiv);
   }
+  spinnerFunction(false);
 };
 
 showAllTree(allTreesLink);
@@ -102,7 +118,8 @@ const addToCartArray = [];
 treeInfoContainer.addEventListener("click", async (e) => {
   if (e.target.closest(".treeName")) {
     const targetId = e.target.id;
-    const res = await returnAllurl(oneTreeLink, targetId);
+    const urlLink = await fetch(`${oneTreeLink}${targetId}`);
+    const res = await urlLink.json();
     showModalContainer(res.plants);
   }
   if (e.target.closest(".addBtn")) {
@@ -131,7 +148,7 @@ const showAddToCard = () => {
       "p-4",
       "bg-[#CFF0DC]",
       "m-2",
-      "rounted-md"
+      "rounded-md"
     );
     newDiv.innerHTML = `
       <div>
@@ -144,7 +161,7 @@ const showAddToCard = () => {
     addCardContainer.append(newDiv);
 
     priceTag.innerHTML = `
-     <h4>Total:</h4>
+     <h4 class="text-[18px] font-semibold">Total:</h4>
      <p><i class="fa-solid fa-bangladeshi-taka-sign"></i> <span class="total">${sum}</span></p>
     `;
   });
@@ -153,17 +170,14 @@ const showAddToCard = () => {
 addCardContainer.addEventListener("click", (e) => {
   if (!e.target.closest(".fa-xmark")) return;
   const parentDiv = e.target.parentElement;
-  const price = parseInt(parentDiv.querySelector("p").innerHTML);
-  const totaldiv = document.querySelector(".total");
-  let total = parseInt(totaldiv.innerHTML);
-  console.log(total);
-
-  const x = (totaldiv.innerHTML = `${total - price}`);
-  if (x <= 0) {
-    priceTag.innerHTML = "";
-    addToCartArray.length = 0;
+  const name = parentDiv.querySelector("h2").innerHTML;
+  const index = addToCartArray.findIndex((item) => item.name === name);
+  if (index !== -1) {
+    addToCartArray.splice(index, 1);
   }
+
   parentDiv.remove();
+  showAddToCard();
 });
 
 const showModalContainer = (oneTree) => {
