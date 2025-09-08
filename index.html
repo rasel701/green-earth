@@ -80,22 +80,22 @@
     <h2 class="text-center m-11 text-3xl font-bold">Choose Your Trees</h2>
 
 
-    <section class="w-full h-auto bg-[#f0fdf4] flex justify-between p-3">
-        <div class="catagories-container w-[15%] border-2 border-red-500 text-center">
-            <h2>Categories</h2>
-            <div class="catagories flex flex-col gap-2 mt-3 ">
+    <section class="w-full h-auto bg-[#f0fdf4] flex justify-between p-3 flex-col lg:flex-row gap-4">
+        <div class="catagories-container mxa-w-[95%]  lg:w-[15%] mx-auto border-2  border-red-500 text-center">
+            <h2 class="font-bold text-lg">Categories</h2>
+            <div class="catagories flex flex-wrap justify-center items-center lg:flex-nowrap lg:flex-col mx-auto gap-2 mt-3   ">
               <button id="allTreeBtn" class="hover:bg-sky-300 p-2 rounded-md cursor-pointer categoriBtn ">All Trees</button>
                
             </div>
         </div>
 
         <!-- All tree container -->
-        <div class="tree-info-container flex-1 border-3 border-amber-600  grid grid-cols-1 gap-4 ">          
+        <div class="tree-info-container flex-1 border-3 border-amber-600 justify-center items-center  grid grid-cols-1 gap-4 lg:grid-cols-3 mx-auto ">          
         </div>
 
 
         <!-- your card -->
-        <div class="your-cart-container w-[20%] border-4 border-lime-600 text-center">
+        <div class="your-cart-container min-w-[20%] text-center bg-white">
             <h1 class="text-lg font-bold">Your Cart</h1>
             <div class="add-cart-container">
 
@@ -123,6 +123,27 @@
           </ul>
         </div>
       </div>
+    </section>
+
+
+    <section class="w-full min-h-[400px] bg-[#CFF0DC] flex flex-col justify-center items-center mt-24 p-4">
+      <h2 class="text-3xl mb-10 mt-7 font-bold ">Our Impact</h2>
+
+      <div class="flex justify-center flex-wrap items-center gap-6">
+        <div class="bg-white h-[150px] min-w-[350px] flex justify-center flex-col items-center rounded-md">
+          <h2 class="text-[32px] font-bold text-[#15803d]">500K+</h2>
+          <p class="text-[#1f2937]">Trees Planted</p>
+        </div>
+        <div class="bg-white h-[150px] min-w-[350px] flex justify-center flex-col items-center rounded-md">
+          <h2  class="text-[32px] font-bold text-[#15803d]">120+</h2>
+          <p class="text-[#1f2937]">Communities Involved</p>
+        </div>
+        <div class="bg-white h-[150px] min-w-[350px] flex justify-center flex-col items-center rounded-md">
+          <h2 class="text-[32px] font-bold text-[#15803d]">30+</h2>
+          <p class="text-[#1f2937]">Countries Reached</p>
+        </div>
+      </div>
+
     </section>
  
 

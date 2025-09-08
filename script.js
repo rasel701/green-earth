@@ -49,11 +49,11 @@ const showAllTree = async (allTreesLink, id) => {
       <img class="h-[250px] w-full rounded-sm"
         src="${tree.image}"
         alt="Shoes" />
-      <h2 class="mt-3"><span id="${
+      <h2 class="mt-5"><span id="${
         tree.id
       }" class="treeName  text-2xl  inline">${tree.name}</span></h2>
-      <p class="mt-1 line-clamp-3 ">${tree.description}</p>
-      <div class="card-actions justify-between items-center mt-3">
+      <p class="mt-4 line-clamp-3 ">${tree.description}</p>
+      <div class="card-actions justify-between items-center mt-5">
           <button class=" p-2 rounded-xl bg-slate-300 text-[#15803d] font-bold text-[14px]">${
             tree.category
           }</button>
@@ -61,7 +61,7 @@ const showAllTree = async (allTreesLink, id) => {
             tree.price
           }</span></p>
         </div>
-        <button  class="bg-[#15803D] w-full p-2 mt-3 rounded-lg cursor-pointer addBtn"  data-info='${JSON.stringify(
+        <button  class="bg-[#15803D] w-full p-2 mt-7 rounded-lg cursor-pointer addBtn"  data-info='${JSON.stringify(
           tree
         )}'>Add to Cart</button>
 
@@ -129,7 +129,7 @@ const showAddToCard = () => {
       "justify-between",
       "items-center",
       "p-4",
-      "bg-white",
+      "bg-[#CFF0DC]",
       "m-2",
       "rounted-md"
     );
