@@ -215,8 +215,21 @@ const [x, y, z] = number;
 
 const person = {
   name: "Rasel",
-  age: 25,
+  age: 20,
   country: "Bangladesh",
 };
 const { name, age, country } = person;
+```
+
+### **Answer to the questionh NO-5:**
+
+- Template literals are **string literals** introduced in ES6 using ** backtick(``) ** instead of quotes.
+- They allow **embeded expressions** using `${expression}`.
+
+### Example
+
+```javascript
+const name = "Rasel";
+const age = 20,
+ const message = ` Hello, my name is ${name} and I am ${age} years old`;
 ```
